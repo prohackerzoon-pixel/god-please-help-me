@@ -2,19 +2,19 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
+  host: 'smtp-relay.brevo.com',
+  port: 587,
+  secure: false,
   auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASS,
+    user: process.env.BREVO_LOGIN,
+    pass: process.env.BREVO_PASSWORD,
   },
   tls: {
     rejectUnauthorized: false,
   },
 });
 
-const FROM = `"BluePeak Finance" <${process.env.GMAIL_USER}>`;
+const FROM = `"BluePeak Finance" <bluepeakfinance02@gmail.com>`;
 
 const css = `<style>body{font-family:Arial,sans-serif;background:#f4f6f9;margin:0;padding:20px}.w{max-width:580px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08)}.h{background:linear-gradient(135deg,#0A1628,#1E3A5F);padding:26px 34px;text-align:center}.h h1{color:#F0B429;margin:0;font-size:22px}.h p{color:rgba(255,255,255,.6);margin:4px 0 0;font-size:12px}.b{padding:28px 34px}.g{font-size:16px;color:#0A1628;font-weight:bold;margin-bottom:14px}.t{font-size:13px;color:#444;line-height:1.7;margin-bottom:16px}.code{background:#0A1628;color:#F0B429;font-size:36px;font-weight:bold;text-align:center;padding:20px;border-radius:8px;letter-spacing:10px;margin:18px 0}.amt{font-size:30px;color:#0A1628;font-weight:bold;text-align:center;margin:14px 0}.info{background:#f8f9fc;border-left:4px solid #F0B429;padding:14px;border-radius:0 8px 8px 0;margin:14px 0}.ir{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #e5e7eb;font-size:12px}.ir:last-child{border-bottom:none}.il{color:#6B7280}.iv{color:#0A1628;font-weight:600}.bs{background:#d1fae5;color:#065f46;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:bold}.bp{background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:bold}.br{background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:bold}.f{background:#f8f9fc;padding:18px 34px;text-align:center;border-top:1px solid #e5e7eb}.f p{color:#9CA3AF;font-size:11px;margin:3px 0}.warn{color:#EF4444;font-size:11px;margin-top:7px}</style>`;
 
